@@ -16,6 +16,15 @@ public class CodeUtils {
 			map.put(jianti[i], fanti[i]);
 		}
 	}
+	/**
+	 * @Title: jianti2fanti
+	 * @author: MN
+	 * @Description: 简体转繁体
+	 * @date: 2015年8月5日 下午4:58:53
+	 * @param str
+	 * @return
+	 * @throws 
+	 */
 	public static String jianti2fanti(String str){
 		if(str!=null && str.length()>0){
 			char[] strchar = str.toCharArray();
