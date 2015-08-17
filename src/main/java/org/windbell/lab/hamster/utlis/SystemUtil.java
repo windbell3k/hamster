@@ -2,9 +2,13 @@ package org.windbell.lab.hamster.utlis;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
+
+import ch.ethz.ssh2.Connection;
+import ch.ethz.ssh2.ConnectionInfo;
+import ch.ethz.ssh2.Session;
 
 public class SystemUtil {
 	/**
@@ -52,22 +56,24 @@ public class SystemUtil {
 		}
 		return null;
 	}
-	public static StringBuffer runCommand(String command){
-		Process execCommand = execCommand(command);
-		BufferedReader input = new BufferedReader(new InputStreamReader(execCommand.getInputStream())); 
-		StringBuffer sb=new StringBuffer();
+	public static void execCommandOnSSHHost(String host, int port, String user,
+			String passwd, String command) throws IOException,
+			UnsupportedEncodingException {
+		Connection con = new Connection(host,port);
+		con.connect();
+		con.authenticateWithPassword(user, passwd);
+		Session session = con.openSession();
+		session.execCommand(command);
+		InputStream stdout = session.getStdout();
+		BufferedReader input = new BufferedReader(new InputStreamReader(stdout)); 
 		String line = "";  
-        try {
-			while ((line = input.readLine()) != null) {  
-			    sb.append(new String(line.getBytes(),"UTF-8"));
-			    sb.append("\n");
-			}  
-			input.close();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
-		return sb;
+		StringBuffer sb=new StringBuffer();
+		while ((line = input.readLine()) != null) {  
+		    sb.append(new String(line.getBytes(),"UTF-8"));
+		    sb.append("\n");
+		}  
+		System.out.println(sb.toString());
+		input.close();  
+		con.close();
 	}
 }
