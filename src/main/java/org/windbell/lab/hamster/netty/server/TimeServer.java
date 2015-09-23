@@ -32,8 +32,18 @@ public class TimeServer {
 
 		@Override
 		protected void initChannel(SocketChannel arg0) throws Exception {
-			
+			arg0.pipeline().addLast(new TimeServerHandler());
 		}
-		
+	}
+	public static void main(String[]args){
+		int prot =8080;
+		if(null!=args&&args.length>0){
+			try{
+				prot=Integer.valueOf(args[0]);
+				
+			}catch(Exception e){
+				
+			}
+		}
 	}
 }
