@@ -21,7 +21,7 @@ import org.hibernate.annotations.GenerationTime;
 
 @MappedSuperclass
 @SuppressWarnings("serial")
-abstract class BaseEntity implements Serializable,Cloneable{
+abstract class BaseMode implements Serializable,Cloneable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -41,7 +41,7 @@ abstract class BaseEntity implements Serializable,Cloneable{
 	@Generated(GenerationTime.ALWAYS)
 	private Date updateTime;
 	
-	public BaseEntity() {
+	public BaseMode() {
 		super();
 	}
 	
@@ -83,15 +83,15 @@ abstract class BaseEntity implements Serializable,Cloneable{
 	}
 	
 	@Override
-	protected BaseEntity clone() throws CloneNotSupportedException {
-		BaseEntity readObject = null;
+	protected BaseMode clone() throws CloneNotSupportedException {
+		BaseMode readObject = null;
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(baos);
 			oos.writeObject(this);
 			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 			ObjectInputStream ois = new ObjectInputStream(bais);
-			readObject = (BaseEntity) ois.readObject();
+			readObject = (BaseMode) ois.readObject();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

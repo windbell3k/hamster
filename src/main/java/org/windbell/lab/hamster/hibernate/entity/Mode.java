@@ -7,7 +7,7 @@ import org.hibernate.annotations.Where;
 
 @MappedSuperclass
 @SuppressWarnings("serial")
-abstract class Entity extends BaseEntity{
+abstract class Mode extends BaseMode{
 	@Where(clause = "DELETED = 1")
 	@Column(name="DELETED")
 	private boolean deleted=false;

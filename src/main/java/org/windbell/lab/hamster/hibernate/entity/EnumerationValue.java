@@ -1,6 +1,6 @@
 package org.windbell.lab.hamster.hibernate.entity;
-
-public class EnumerationValue extends Entity {
+@javax.persistence.Entity
+public class EnumerationValue extends Mode {
 	private static final long serialVersionUID = 7372533322687647450L;
 	/**
 	 * 枚举值编号
