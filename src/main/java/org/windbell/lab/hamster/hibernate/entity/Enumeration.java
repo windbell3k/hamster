@@ -2,6 +2,12 @@ package org.windbell.lab.hamster.hibernate.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
+import org.hibernate.engine.internal.Cascade;
+
 @javax.persistence.Entity
 public class Enumeration extends Mode {
 	private static final long serialVersionUID = -1452599811639787010L;
@@ -28,6 +34,7 @@ public class Enumeration extends Mode {
 	/**
 	 * 枚举值
 	 */
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,targetEntity=EnumerationValue.class)
 	private List<EnumerationValue> enumerationValues;
 	/**
 	 * 枚举类型

@@ -27,6 +27,7 @@ abstract class BaseMode implements Serializable,Cloneable{
 	@Column(name = "ID")
 	private Long id;
 	@Version
+	@Column(name = "VERSION")
 	private Long version;
 	@Column(name = "CREATOR")
 	private String creator;

@@ -1,4 +1,9 @@
 package org.windbell.lab.hamster.hibernate.entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 @javax.persistence.Entity
 public class EnumerationValue extends Mode {
 	private static final long serialVersionUID = 7372533322687647450L;
@@ -25,6 +30,8 @@ public class EnumerationValue extends Mode {
 	/**
 	 * 所属枚举
 	 */
+	@ManyToOne(cascade=CascadeType.ALL,targetEntity=Enumeration.class)
+	@JoinColumn(name="id")
 	private Enumeration enumeration;
 
 	public EnumerationValue() {
