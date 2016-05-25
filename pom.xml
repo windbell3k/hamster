@@ -6,7 +6,20 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Rice-meat dumplings</name>
 	<description>All this are test project</description>
+	<properties>
+		<hibernate.version>4.1.0.Final</hibernate.version>
+	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
