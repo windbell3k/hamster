@@ -30,7 +30,7 @@
 		<appender-ref ref="HAMSTER" />
 	</logger>
 
-	<root level="debug">
+	<root level="info">
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>
