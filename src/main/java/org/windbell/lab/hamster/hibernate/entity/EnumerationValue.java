@@ -31,7 +31,7 @@ public class EnumerationValue extends Mode {
 	 * 所属枚举
 	 */
 	@ManyToOne(cascade=CascadeType.ALL,targetEntity=Enumeration.class)
-	@JoinColumn(name="id")
+	@JoinColumn(name="enumeration")
 	private Enumeration enumeration;
 
 	public EnumerationValue() {

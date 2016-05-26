@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import org.hibernate.engine.internal.Cascade;
@@ -35,6 +36,7 @@ public class Enumeration extends Mode {
 	 * 枚举值
 	 */
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,targetEntity=EnumerationValue.class)
+	@JoinColumn(name="enumeration")
 	private List<EnumerationValue> enumerationValues;
 	/**
 	 * 枚举类型
