@@ -1,6 +1,5 @@
 package org.windbell.lab.hamster.hibernate;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,6 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.windbell.lab.hamster.hibernate.entity.Enumeration;
 import org.windbell.lab.hamster.hibernate.entity.EnumerationValue;
+import org.windbell.lab.hamster.hibernate.entity.Mode;
 
 public class HibernateTest {
 	static Session session =null;
@@ -64,6 +64,18 @@ public class HibernateTest {
 		session.flush();
 		Query query2 = session.createQuery("from Enumeration");
 		List list2 = query2.list();
-		System.out.println();
+		for (Object object : list2) {
+			System.out.println(object);
+		}
+		Enumeration enumeration2 = (Enumeration)session.get(Enumeration.class, 1L);
+		System.out.println(enumeration2);
+		
+		EnumerationValue value = (EnumerationValue)session.get(EnumerationValue.class, 2L);
+		System.out.println(value);
+		
+		boolean assignableFrom = Mode.class.isAssignableFrom(value.getClass());
+		boolean assignableFrom2 = value.getClass().isAssignableFrom(Mode.class);
+		System.out.println(assignableFrom);
+		System.out.println(assignableFrom2);
 	}
 }

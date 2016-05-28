@@ -42,6 +42,7 @@ public class Ssh2Test {
 	        } catch (Exception ex) {
 	            System.out.println(ex.getLocalizedMessage());
 	        }
+		 
 	}
 
 	private static void sessionRuselt(Session session) throws IOException,

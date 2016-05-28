@@ -21,7 +21,7 @@ import org.hibernate.annotations.GenerationTime;
 
 @MappedSuperclass
 @SuppressWarnings("serial")
-abstract class BaseMode implements Serializable,Cloneable{
+public class BaseMode implements Serializable,Cloneable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "ID")
