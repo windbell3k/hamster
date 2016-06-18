@@ -1,5 +1,6 @@
 package org.windbell.lab.hamster.utlis;
 
+import java.awt.GraphicsEnvironment;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,6 +62,19 @@ public final class SystemUtil {
 		}
 		return null;
 	}
+	/**
+	 * @Title: execCommandOnSSHHost
+	 * @author: MN
+	 * @Description: 登录ssh 主机并执行命令
+	 * @date: 2016年6月18日 上午8:10:52
+	 * @param host
+	 * @param port
+	 * @param user
+	 * @param passwd
+	 * @param command
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
+	 */
 	public static void execCommandOnSSHHost(String host, int port, String user,
 			String passwd, String command) throws IOException,
 			UnsupportedEncodingException {
@@ -80,5 +94,17 @@ public final class SystemUtil {
 		System.out.println(sb.toString());
 		input.close();  
 		con.close();
+	}
+	
+	/**
+	 * @Title: getFontFamilyNames
+	 * @author: MN
+	 * @Description: 获取当前系统可用字体
+	 * @date: 2016年6月18日 上午8:11:19
+	 * @return
+	 */
+	public static String[] getFontFamilyNames(){
+		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();  
+        return e.getAvailableFontFamilyNames();  
 	}
 }
