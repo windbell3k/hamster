@@ -10,7 +10,12 @@ import ch.ethz.ssh2.Connection;
 import ch.ethz.ssh2.ConnectionInfo;
 import ch.ethz.ssh2.Session;
 
-public class SystemUtil {
+/**
+ * @author MN
+ * @Description: 系统工具类
+ * @date: 2016年6月18日 上午7:58:42
+ */
+public final class SystemUtil {
 	/**
 	 * @Title: isLinux
 	 * @author: MN
