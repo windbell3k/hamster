@@ -1,0 +1,20 @@
+package com.naixuan.rules
+
+import org.windbell.lab.hamster.drools.Applicant;
+import org.windbell.lab.hamster.drools.Action;
+
+rule "Is of valid age"
+when
+  $a: Applicant(age < 18)
+then
+  $a.setValid(false);
+  new Action("年龄判断").doSomeThing();//执行动作方式一
+  insert(new Action("未成年"));//执行动作方式二
+end
+
+rule "send_act"
+when
+    $a: Action()
+then
+    $a.doSomeThing();
+end
