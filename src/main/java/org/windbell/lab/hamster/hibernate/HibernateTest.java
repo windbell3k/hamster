@@ -20,7 +20,7 @@ public class HibernateTest {
 	static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(HibernateTest.class);
 	
 	public static void main(String[] args) {
-		
+
 		Configuration cfg = new Configuration();
 		String hibrenateConfigPaht = "./hibernate.cfg.xml";
 		cfg.configure(hibrenateConfigPaht);
@@ -77,5 +77,7 @@ public class HibernateTest {
 		boolean assignableFrom2 = value.getClass().isAssignableFrom(Mode.class);
 		System.out.println(assignableFrom);
 		System.out.println(assignableFrom2);
+
+		session.createQuery("from Student");
 	}
 }
