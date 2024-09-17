@@ -22,6 +22,18 @@ public class CommonMode {
     @Generated(GenerationTime.ALWAYS)
     private Date updateTime;
 
+    public CommonMode() {
+    }
+
+    public CommonMode(String creator, String updater) {
+        this.creator = creator;
+        this.updater = updater;
+    }
+
+    public CommonMode(String updater) {
+        this.updater = updater;
+    }
+
     public String getCreator() {
         return creator;
     }
