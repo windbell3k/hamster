@@ -8,7 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import org.hibernate.engine.internal.Cascade;
+import org.hibernate.envers.Audited;
 
+@Audited
 @javax.persistence.Entity
 public class Enumeration extends Mode {
 	private static final long serialVersionUID = -1452599811639787010L;

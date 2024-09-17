@@ -1,9 +1,11 @@
 package org.windbell.lab.hamster.hibernate.entity;
 
+import org.hibernate.envers.Audited;
+
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+@Audited
 @javax.persistence.Entity
 public class EnumerationValue extends Mode {
 	private static final long serialVersionUID = 7372533322687647450L;
