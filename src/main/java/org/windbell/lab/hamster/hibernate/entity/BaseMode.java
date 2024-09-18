@@ -24,21 +24,21 @@ import org.hibernate.annotations.GenerationTime;
 public class BaseMode implements Serializable,Cloneable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "ID")
+	@Column(name = "id")
 	private Long id;
 	@Version
-	@Column(name = "VERSION")
+	@Column(name = "version")
 	private Long version;
-	@Column(name = "CREATOR")
+	@Column(name = "creator")
 	private String creator;
-	@Column(name = "UPDATER")
+	@Column(name = "updater")
 	private String updater;
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_TIME",columnDefinition="timestamp default CURRENT_TIMESTAMP")
+	@Column(name = "create_time",columnDefinition="timestamp default CURRENT_TIMESTAMP")
 	@Generated(GenerationTime.INSERT)
 	private Date createTime;
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATE_TIME",columnDefinition="timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+	@Column(name = "update_time",columnDefinition="timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
 	@Generated(GenerationTime.ALWAYS)
 	private Date updateTime;
 	

@@ -8,8 +8,7 @@ import org.hibernate.annotations.Where;
 @MappedSuperclass
 @SuppressWarnings("serial")
 public class Mode extends BaseMode{
-	@Where(clause = "DELETED = 1")
-	@Column(name="DELETED")
+	@Column(name="deleted")
 	private boolean deleted=false;
 	
 	public final boolean isDeleted() {

@@ -9,16 +9,16 @@ import java.util.Date;
 @Embeddable
 public class CommonMode {
 
-    @Column(name = "CREATOR", length = 128)
+    @Column(name = "creator", length = 128)
     private String creator;
-    @Column(name = "UPDATER", length = 128)
+    @Column(name = "updater", length = 128)
     private String updater;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATE_TIME", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
+    @Column(name = "create_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     @Generated(GenerationTime.INSERT)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "UPDATE_TIME", columnDefinition = "timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    @Column(name = "update_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     @Generated(GenerationTime.ALWAYS)
     private Date updateTime;
 

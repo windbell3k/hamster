@@ -22,8 +22,8 @@
 		<!-- <property name="hbm2ddl.auto">create-drop</property> -->
 		<!-- <property name="hbm2ddl.auto">create</property> -->
 		<!-- <property name="hbm2ddl.auto">validate</property> -->
-		<property name="javax.persistence.validation.mode">none</property>
-		<!-- 映射文件的注册 -->
+       <property name="javax.persistence.validation.mode">none</property>
+       <!-- 映射文件的注册 -->
 <!--		 <mapping resource="org/windbell/lab/hamster/hibernate/entity/student.hbm.xml"/> -->
 		<mapping class="org.windbell.lab.hamster.hibernate.entity.BaseMode" />
 		<mapping class="org.windbell.lab.hamster.hibernate.entity.Mode" />
@@ -31,6 +31,7 @@
 		<mapping class="org.windbell.lab.hamster.hibernate.entity.EnumerationValue" />
 		<mapping class="org.windbell.lab.hamster.hibernate.entity.CommonMode" />
 		<mapping class="org.windbell.lab.hamster.hibernate.entity.Student" />
+		<mapping class="org.windbell.lab.hamster.hibernate.entity.User" />
 		<!-- <mapping resource="classpath*:/com/jeecms/core/entity/hbm/*.hbm.xml"/> -->
 		<!-- mapping class="org.windbell.lab.hamster.hibernate.entity.BaseEntity"/> -->
 

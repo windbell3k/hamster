@@ -2,20 +2,26 @@ package org.windbell.lab.hamster.hibernate.entity;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Where;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 
 @Entity
+@Audited
 @DynamicInsert
 @DynamicUpdate
+@Where(clause = "deleted = 0")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @Version
-    @Column(name = "VERSION")
+    @Column(name = "version")
     private Long version;
+    @Column(name = "deleted")
+    private boolean deleted = false;
     @Embedded
     CommonMode commonMode;
     @Column(name = "name", length = 50)
@@ -38,6 +44,15 @@ public class Student {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public Student setDeleted(boolean deleted) {
+        this.deleted = deleted;
+        return this;
     }
 
     public CommonMode getCommonMode() {
